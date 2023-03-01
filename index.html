@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,24 +12,33 @@
     <style>
         nav {
             height: 100%;
+
         }
 
         section {
             max-width: 100%;
+            max-height: 100%;
         }
-        .text{
-            color:black;
+
+        .text {
+            color: black;
+        }
+
+        .row {
+            height: 100%;
         }
     </style>
 </head>
+
 <body>
     <header>
     </header>
 
     <main>
         <section>
-            <div class="row">
-                <nav class="col-sm-12 col-lg-4 text-center text-white bg-dark p-0">
+            <div class="row bg-dark">
+                <!-- left side content -->
+                <nav class="col-sm-12 col-lg-4 text-center bg-dark text-white  p-0">
                     <div class="py-2">
                         <h1 class="display-5 fw-bold">BILLIONAIRE</h1>
                         <P class="display-6">DAIRY</P>
@@ -53,17 +63,20 @@
                     <button onclick="loadData()" class="btn w-75 mx-auto bg-white text-dark">
                         <h4>Show All Billionaires</h4>
                     </button>
-                    <button onclick="loadTechIndustry()" class="btn w-75 mx-auto bg-white text-dark my-2">
-                        <h4>Richest by industry</h4>
-                        <p class="mb-0">(Technology)</p>
-                    </button>
-                    <button class="btn w-75 mx-auto bg-white text-dark mb-3">
+                    <a href="index2.html">
+                        <button class="btn w-75 mx-auto bg-white text-dark my-2">
+                            <h4>Richest by industry</h4>
+                            <p class="mb-0">(Technology)</p>
+                        </button>
+                    </a>
+                    <button onclick="loadState()" class="btn w-75 mx-auto bg-white text-dark mb-3">
                         <h4>Richest by states</h4>
                         <p class="mb-0">(Texas)</p>
                     </button>
                 </nav>
+                <!-- right side main content -->
                 <div class="col-sm-12 col-lg-8 bg-secondary p-3">
-                    <div class="">
+                    <div>
                         <div>
                             <h3>Hello, User</h3>
                         </div>
@@ -71,19 +84,46 @@
                             <thead class="border-bottom border-dark">
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Citizenship</th>
                                     <th scope="col">Person</th>
+                                    <th scope="col">Citizenship</th>
                                     <th scope="col">Industry</th>
                                     <th scope="col">Rank</th>
                                     <th scope="col">Wealth</th>
+                                    <th scope="col">State</th>
+                                    <th scope="col">Details</th>
                                 </tr>
                             </thead>
                             <tbody id="tbody">
+                                <!-- dynamic content will be here -->
                             </tbody>
                         </table>
                     </div>
                 </div>
+                <div id="single-billionaire-details">
+
+                </div>
             </div>
+        </section>
+        <!-- modal contents -->
+        <section>
+             <!-- Modal -->
+             <div class="modal fade" id="billionaireDetailModal" tabindex="-1" aria-labelledby="billionaireDetailModalLabel"
+             aria-hidden="true">
+             <div class="modal-dialog">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <h5 class="modal-title" id="billionaireDetailModalLabel"></h5>
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div id="billionaire-details" class="modal-body">
+                         <!-- dynamic contents will be here -->
+                     </div>
+                     <div class="modal-footer">
+                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
         </section>
     </main>
 
@@ -97,4 +137,5 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 </body>
+
 </html>

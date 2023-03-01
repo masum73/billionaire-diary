@@ -1,68 +1,41 @@
 const loadData = () => {
     fetch('./data/AllBillionaires.json')
-    .then(res => res.json())
-    .then(data => displayData(data.slice(0,15)))
+        .then(res => res.json())
+        .then(data => displayData(data.slice(0, 25)))
 }
 
 const displayData = (data) => {
-    //console.log(data);
-
     const tableBody = document.getElementById('tbody');
     let serial = 1;
     tableBody.innerHTML = '';
     data.forEach(billionaire => {
-        //console.log(billionaire.countryOfCitizenship);
-        //console.log(billionaire.personName);
-       // console.log(billionaire.industries);
-        //console.log(billionaire.rank);
-        //console.log(billionaire);
-
-        const {countryOfCitizenship, personName, rank , finalWorth } = billionaire;
+        const { personName, countryOfCitizenship, rank, industries, finalWorth, state } = billionaire;
         tableBody.classList.add('text');
-        
+        //console.log(billionaire.naturalId);
         tableBody.innerHTML += `
         <tr>
             <th scope="row">${serial++}</th>
-            <td>${countryOfCitizenship}</td>
             <td>${personName}</td>
-            <td>${billionaire.industries[0]}</td>
+            <td>${countryOfCitizenship}</td>
+            <td>${industries[0]}</td>
             <td>${rank}</td>
-            <td>@${finalWorth}</td>
+            <td>$${finalWorth}</td>
+            <td>${state ? state : 'Not found'}</td>
+            <td><button onclick="openModal('${billionaire.naturalId}')" class="btn bg-white text-dark" data-bs-toggle="modal" data-bs-target="#billionaireDetailModal">Click for Details</button></td>
         </tr>
         `
     });
 
 }
 
-// load tech industry button data 
+const openModal = (value) => {
+    console.log(value);
+};
 
-const loadTechIndustry = () => {
-    fetch('./data/ByIndustryTechnology.json')
-    .then(res => res.json())
-    .then(data => displayTechIndustry(data.slice(0,15)))
-}
+// load state button data 
 
-const displayTechIndustry = (multipleIndustry) => {
-    console.log(multipleIndustry);
-    const tableBody = document.getElementById('tbody');
-    let serial = 1;
-    tableBody.innerHTML = '';
-    multipleIndustry.forEach(singleIndustry => {
-
-        const {countryOfCitizenship, personName, rank , finalWorth } = singleIndustry;
-        tableBody.classList.add('text')
-        
-        tableBody.innerHTML += `
-        <tr>
-            <th scope="row">${serial++}</th>
-            <td>${countryOfCitizenship}</td>
-            <td>${personName}</td>
-            <td>${singleIndustry.industries[0]}</td>
-            <td>${rank}</td>
-            <td>@${finalWorth}</td>
-        </tr>
-        `
-    });
-    
-
+const loadState = () => {
+    fetch('./data/ByStateTexas.json')
+        .then(res => res.json())
+        .then(data => displayData(data.slice(0, 15)))
 }
