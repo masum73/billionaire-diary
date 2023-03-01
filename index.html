@@ -63,13 +63,11 @@
                     <button onclick="loadData()" class="btn w-75 mx-auto bg-white text-dark">
                         <h4>Show All Billionaires</h4>
                     </button>
-                    <a href="index2.html">
-                        <button class="btn w-75 mx-auto bg-white text-dark my-2">
+                    <button id="technology-btn" class="btn w-75 mx-auto bg-white text-dark my-2">
                             <h4>Richest by industry</h4>
                             <p class="mb-0">(Technology)</p>
-                        </button>
-                    </a>
-                    <button onclick="loadState()" class="btn w-75 mx-auto bg-white text-dark mb-3">
+                    </button>
+                    <button id="state-btn" class="btn w-75 mx-auto bg-white text-dark mb-3">
                         <h4>Richest by states</h4>
                         <p class="mb-0">(Texas)</p>
                     </button>
@@ -90,7 +88,6 @@
                                     <th scope="col">Rank</th>
                                     <th scope="col">Wealth</th>
                                     <th scope="col">State</th>
-                                    <th scope="col">Details</th>
                                 </tr>
                             </thead>
                             <tbody id="tbody">
@@ -98,9 +95,6 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
-                <div id="single-billionaire-details">
-
                 </div>
             </div>
         </section>
